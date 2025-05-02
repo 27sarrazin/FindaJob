@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Criar Conta - Find a Job</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Criar Conta</h1>
+
+    <form id="cadastroForm">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" name="senha" required />
+
+      <label for="confirmarSenha">Confirmar Senha:</label>
+      <input type="password" id="confirmarSenha" name="confirmarSenha" required />
+
+      <fieldset>
+        <legend>Você está:</legend>
+        <label>
+          <input type="radio" name="tipoConta" value="emprego" required />
+          Procurando Emprego
+        </label><br />
+        <label>
+          <input type="radio" name="tipoConta" value="funcionario" />
+          Procurando Funcionário
+        </label>
+      </fieldset>
+
+      <div class="botoes">
+        <button type="submit">Criar Conta</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
