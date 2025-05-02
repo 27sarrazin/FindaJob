@@ -1,6 +1,7 @@
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #ABADB2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,37 +10,86 @@ body {
   }
   
   .container {
-    background-color: #e0e0e0;
-    padding: 30px;
+    background-color: #295290;
+    padding: 40px;
     border-radius: 8px;
-    box-shadow: 0 0 10px #ccc;
-    width: 300px;
+    width: 400px;
   }
-  
+
   h1 {
     text-align: center;
     margin-bottom: 20px;
+    color: #fff;
   }
   
   label {
     display: block;
-    margin-top: 10px;
+    color: #fff;
   }
-  
-  input {
+
+  input[type="text"], input[type="email"],
+  input[type="password"],
+  textarea {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
+    padding: 7px;
+    margin-bottom: 15px;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    background-color: #f7fafc;
+    color: #2d3748;
+    font-size: 1rem;
   }
   
   .botoes {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    
   }
   
   button {
-    padding: 8px 12px;
+    padding: 15px 12px;
     cursor: pointer;
+    border-radius: 8px;
+    color: #fff;
+    width: 150px;
+    font-weight: bold;
+    transition: 0.5s;
   }
-  
+
+  .criarConta{
+    background-color: #43a047; 
+  }
+
+  .criarConta:hover{
+    background-color: #2e7d32; 
+    
+  }
+
+  .entrar{
+    background-color: #f57c00;
+  }
+
+  .entrar:hover{
+    background-color: #e65100; 
+  }
+
+  .btnCadastrar{
+    background-color: #0066CC; 
+  }
+
+  .btnCadastrar:hover {
+    background-color: #004C99;
+  }
+
+  .btnVoltar {
+    background-color: #999999; 
+  }
+
+  .btnVoltar:hover {
+    background-color: #666666;
+  }
+
+  .corEmpresaCandidato{
+    background-color:  #4A6D7C;
+  }

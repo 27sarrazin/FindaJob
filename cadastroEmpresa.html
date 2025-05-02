@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Empresa - Find a Job</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+    <div class="container corEmpresaCandidato">
+        <h1>Cadastro da Empresa</h1>
+        <form id="formEmpresa">
+          <label for="nomeEmpresa">Nome da empresa:</label>
+          <input type="text" id="nomeEmpresa" required />
+    
+          <label for="cnpjEmpresa">CNPJ:</label>
+          <input type="text" id="cnpjEmpresa" required />
+    
+          <label for="contatoEmpresa">Contato:</label>
+          <input type="text" id="contatoEmpresa" required />
+    
+          <label for="emailEmpresa">Email:</label>
+          <input type="email" id="emailEmpresa" required />
+    
+          <label for="senhaEmpresa">Senha:</label>
+          <input type="password" id="senhaEmpresa" required />
+    
+          <div class="botoes">
+            <button class="btnCadastrar" type="submit">Cadastrar</button>
+            <button class="btnVoltar" type="button" onclick="voltarLogin()">Voltar para o Login</button>
+          </div>
+        </form>
+    </div>
+        <script src="js/script.js"></script>
+</body>
+</html>
