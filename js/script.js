@@ -85,8 +85,15 @@ document.addEventListener("DOMContentLoaded", function () {
       const nome = document.getElementById("nome").value.trim();
       const cpf = document.getElementById("cpf").value.trim();
 
+      const cpfPattern = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+
       if (!nome || !cpf) {
         alert("Por favor, preencha todos os campos obrigatórios.");
+        return;
+      }
+
+      if (!cpfPattern.test(cpf)) {
+        alert("CPF inválido. Use o formato XXX.XXX.XXX-XX");
         return;
       }
 
