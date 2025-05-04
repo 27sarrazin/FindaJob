@@ -150,29 +150,104 @@ function excluirConta() {
 }
 
 //Tela Formação academica
-document.querySelector('button[type="submit"]').addEventListener('click', function(event) {
-  event.preventDefault();
-  let curso = document.getElementById('curso').value;
-  let instituicao = document.getElementById('instituicao').value;
-  let cidade = document.getElementById('cidade').value;
+document.addEventListener("DOMContentLoaded", function () {
+  const inputNome = document.getElementById('nome');
+  const inputCurso = document.getElementById('curso');
+  const inputInstituicao = document.getElementById('instituicao');
+  const inputCidade = document.getElementById('cidade');
 
-  if(curso && instituicao && cidade) {
-      alert('Formulário salvo com sucesso!');
-  } else {
-      alert('Preencha todos os campos!');
+  const dadosSalvos = JSON.parse(localStorage.getItem("formacaoCandidato"));
+  if (dadosSalvos) {
+    inputNome.value = dadosSalvos.nome || '';
+    inputCurso.value = dadosSalvos.curso || '';
+    inputInstituicao.value = dadosSalvos.instituicao || '';
+    inputCidade.value = dadosSalvos.cidade || '';
   }
+
+  document.querySelector('button[type="submit"]').addEventListener('click', function (event) {
+    event.preventDefault();
+
+    const nome = inputNome.value.trim();
+    const curso = inputCurso.value.trim();
+    const instituicao = inputInstituicao.value.trim();
+    const cidade = inputCidade.value.trim();
+
+    if (nome && curso && instituicao && cidade) {
+      const formacao = {
+        nome: nome,
+        curso: curso,
+        instituicao: instituicao,
+        cidade: cidade
+      };
+
+      localStorage.setItem("formacaoCandidato", JSON.stringify(formacao));
+      alert('Formulário salvo com sucesso!');
+    } else {
+      alert('Preencha todos os campos!');
+    }
+  });
+
+  document.querySelector('.btn-warning').addEventListener('click', function () {
+    const nome = inputNome.value.trim();
+    const curso = inputCurso.value.trim();
+    const instituicao = inputInstituicao.value.trim();
+    const cidade = inputCidade.value.trim();
+
+    if (nome && curso && instituicao && cidade) {
+      const formacao = {
+        nome: nome,
+        curso: curso,
+        instituicao: instituicao,
+        cidade: cidade
+      };
+
+      localStorage.setItem("formacaoCandidato", JSON.stringify(formacao));
+      alert('Formulário atualizado com sucesso!');
+    } else {
+      alert('Preencha todos os campos para atualizar!');
+    }
+  });
 });
 
-document.querySelector('.btn-warning').addEventListener('click', function() {
-  let curso = document.getElementById('curso').value;
-  let instituicao = document.getElementById('instituicao').value;
-  let cidade = document.getElementById('cidade').value;
 
-  if(curso && instituicao && cidade) {
-      alert('Formulário atualizado com sucesso!');
-  } else {
-      alert('Preencha todos os campos para atualizar!');
-  }
+
+//Tela de Busca
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('formBusca').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const termo = document.getElementById('campoBusca').value.trim().toLowerCase();
+    const tabela = document.getElementById('tabelaResultados');
+
+    const candidatos = [
+        { nome: 'Rosilane', curso: 'Analise de Sistemas', instituicao: 'UFAM', cidade: 'Manaus'},
+        { nome: 'Pedro', curso: 'Engenharia Civil', instituicao: 'USP', cidade: 'São Paulo'},
+        { nome: 'Rebeca', curso: 'Pedagogia', instituicao: 'UEA', cidade: 'Manaus'},
+    ];
+
+    const dadosSalvos = localStorage.getItem("formacaoCandidato");
+    if (dadosSalvos) {
+        candidatos.push(JSON.parse(dadosSalvos));
+    }
+
+    tabela.innerHTML = '';
+
+    const filtrados = candidatos.filter(c => c.curso.toLowerCase().includes(termo));
+    if (filtrados.length === 0) {
+        tabela.innerHTML = `<tr><td colspan="4" class="text-center">Nenhum resultado encontrado.</td></tr>`;
+    } else {
+        filtrados.forEach(c => {
+            tabela.innerHTML += `
+                <tr>
+                    <td>${c.nome}</td>
+                    <td>${c.curso}</td>
+                    <td>${c.instituicao}</td>
+                    <td>${c.cidade}</td>
+                </tr>
+            `;
+        });
+    }
+  });
 });
 
 
