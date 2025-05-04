@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (loginForm) {
     loginForm.addEventListener("submit", function (event) {
       event.preventDefault();
-
+      
       const emailDigitado = document.getElementById("email").value;
       const senhaDigitada = document.getElementById("senha").value;
 
@@ -134,7 +134,49 @@ function voltarLogin() {
   window.location.href = "index.html";
 }
 
-  
+//Tela principal candidato
+function mostrarConteudo(secao) {
+  document.getElementById("conteudo").innerHTML = `<p>Seção selecionada: ${secao}</p>`;
+}
+
+function atualizarFormacao() {
+  window.location.href = "TelaFormacaoAcademica.html";
+}
+
+function excluirConta() {
+  if (confirm("Tem certeza que deseja excluir sua conta?")) {
+    alert("Conta excluída!");
+  }
+}
+
+//Tela Formação academica
+document.querySelector('button[type="submit"]').addEventListener('click', function(event) {
+  event.preventDefault();
+  let curso = document.getElementById('curso').value;
+  let instituicao = document.getElementById('instituicao').value;
+  let cidade = document.getElementById('cidade').value;
+
+  if(curso && instituicao && cidade) {
+      alert('Formulário salvo com sucesso!');
+  } else {
+      alert('Preencha todos os campos!');
+  }
+});
+
+document.querySelector('.btn-warning').addEventListener('click', function() {
+  let curso = document.getElementById('curso').value;
+  let instituicao = document.getElementById('instituicao').value;
+  let cidade = document.getElementById('cidade').value;
+
+  if(curso && instituicao && cidade) {
+      alert('Formulário atualizado com sucesso!');
+  } else {
+      alert('Preencha todos os campos para atualizar!');
+  }
+});
+
+
+
 
 
 
