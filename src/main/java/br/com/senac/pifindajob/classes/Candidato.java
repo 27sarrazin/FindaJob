@@ -2,8 +2,6 @@ package br.com.senac.pifindajob.classes;
 
 import jakarta.persistence.*;
 
-
-
 @Entity
 @Table(name="tb_candidato")
 public class Candidato implements mostrarInformacoes{
