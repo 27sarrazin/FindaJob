@@ -19,7 +19,6 @@ O sistema **Find a Job** tem como objetivo conectar empresas e candidatos, facil
 ## 🔥 Funcionalidades  
 ✅ Cadastro de candidatos e empresas  
 ✅ Busca e filtragem de candidatos por formação e experiência  
-✅ Gerenciamento de vagas e aplicações  
 ✅ Integração com banco de dados para armazenamento de informações  
 ✅ Interface amigável para facilitar o uso do sistema  
 
