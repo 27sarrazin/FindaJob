@@ -4,7 +4,7 @@
  */
 package br.com.senac.pifindajob.repository;
 
-import br.com.senac.pifindajob.classes.Candidato;
+
 import br.com.senac.pifindajob.classes.FormacaoAcademica;
 import org.springframework.data.jpa.repository.JpaRepository;
 
