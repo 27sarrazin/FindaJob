@@ -52,5 +52,11 @@ public class FormacaoService {
                          .toList();
     }
 
-    
+      public List<Candidato> buscarCandidatosPorCurso(String curso) {
+        return repository.findByCursoIgnoreCase(curso)
+                         .stream()
+                         .map(FormacaoAcademica::getId_Candidato)
+                         .distinct()
+                         .toList();
+    }
 }

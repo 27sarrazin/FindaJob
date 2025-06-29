@@ -4,10 +4,14 @@
  */
 package br.com.senac.pifindajob.service;
 
+
 import br.com.senac.pifindajob.classes.Candidato;
 import br.com.senac.pifindajob.repository.CandidatoRepository;
 import br.com.senac.pifindajob.repository.EmpresaRepository;
 import java.util.List;
+
+import br.com.senac.pifindajob.repository.EmpresaRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +22,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class EmpresaService {
     @Autowired
+
     private EmpresaRepository repository;
 
     @Autowired
@@ -26,6 +31,9 @@ public class EmpresaService {
     public List<Candidato> buscarCandidatosPorCurso(String curso) {
         return candidatoRepository.buscarPorCurso(curso);
     }
+
+    
+
     
     
 }
