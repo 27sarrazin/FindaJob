@@ -9,6 +9,7 @@ import br.com.senac.pifindajob.service.FormacaoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,8 +26,8 @@ public class EmpresaController {
     private FormacaoService formacaoService;
 
     // Endpoint para empresas buscarem candidatos pela formação
-    @GetMapping("/buscar-candidatos")
-    public List<Candidato> buscarCandidatosPorCurso(@RequestParam String curso) {
+    @GetMapping("/buscar-candidatos/{curso}")
+    public List<Candidato> buscarCandidatosPorCurso(@PathVariable String curso) {
         return formacaoService.buscarCandidatosPorCurso(curso);
     }
 }
