@@ -3,18 +3,16 @@
  */
 
 package br.com.senac.pifindajob;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  *
  * @author Rosilane
  */
+@SpringBootApplication
 public class PIFindAJob {
 
     public static void main(String[] args) {
-        EntityManagerFactory fabricaEntidade = Persistence.createEntityManagerFactory("jobfind");
-
-         EntityManager manager = fabricaEntidade.createEntityManager();
+        SpringApplication.run(PIFindAJob.class, args);
     }
 }

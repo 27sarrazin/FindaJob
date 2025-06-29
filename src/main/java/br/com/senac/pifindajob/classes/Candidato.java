@@ -1,15 +1,22 @@
 package br.com.senac.pifindajob.classes;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="tb_candidato")
-public class Candidato implements mostrarInformacoes{
+public class Candidato implements mostrarInformacoes, Serializable{
+    
+    private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_candidato")
+    @JsonBackReference
     private int idCandidato;
+    
     @Column(nullable = false)
     private String nome;
     
@@ -24,6 +31,7 @@ public class Candidato implements mostrarInformacoes{
     private String descricaoCarreira;
     
     @OneToOne(mappedBy = "id_Candidato", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private FormacaoAcademica formacaoAcademica;
 
     public Candidato() {
