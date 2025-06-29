@@ -6,6 +6,7 @@ package br.com.senac.pifindajob.repository;
 
 
 import br.com.senac.pifindajob.classes.FormacaoAcademica;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -13,5 +14,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author Rosilane
  */
 public interface FormacaoRepository extends JpaRepository<FormacaoAcademica, Integer>{
-    
+     List<FormacaoAcademica> findByCursoIgnoreCase(String curso);
 }

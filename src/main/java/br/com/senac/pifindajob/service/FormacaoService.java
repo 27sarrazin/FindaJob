@@ -43,5 +43,11 @@ public class FormacaoService {
             return repository.findAll();
         }
 
-    
+      public List<Candidato> buscarCandidatosPorCurso(String curso) {
+        return repository.findByCursoIgnoreCase(curso)
+                         .stream()
+                         .map(FormacaoAcademica::getId_Candidato)
+                         .distinct()
+                         .toList();
+    }
 }
