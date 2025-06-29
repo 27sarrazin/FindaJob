@@ -3,8 +3,10 @@ br\com\senac\pifindajob\telas\GerenciarVagas$4.class
 br\com\senac\pifindajob\telas\TelaCriarConta$5.class
 br\com\senac\pifindajob\classes\Endereco.class
 br\com\senac\pifindajob\telas\TelaCadastro$4.class
+br\com\senac\pifindajob\controller\formacaoController.class
 br\com\senac\pifindajob\telas\telaDocumentosAnexos$2.class
 br\com\senac\pifindajob\classes\Pessoa.class
+br\com\senac\pifindajob\service\FormacaoService.class
 br\com\senac\pifindajob\telas\telaPrincipalEmpresa$2.class
 br\com\senac\pifindajob\telas\TelaLogin$1.class
 br\com\senac\pifindajob\telas\GerenciarVagas$1.class
@@ -28,6 +30,7 @@ br\com\senac\pifindajob\persistencia\FormacaoDao.class
 br\com\senac\pifindajob\telas\CadastroTrabalhador$1.class
 br\com\senac\pifindajob\telas\TelaPrincipalCandidato$3.class
 br\com\senac\pifindajob\telas\telaPrincipalEmpresa$1.class
+br\com\senac\pifindajob\repository\CandidatoRepository.class
 br\com\senac\pifindajob\classes\historicoProfissional.class
 br\com\senac\pifindajob\telas\TelaCadastro$1.class
 br\com\senac\pifindajob\telas\TelaCriarConta$4.class
@@ -35,6 +38,7 @@ br\com\senac\pifindajob\telas\GerenciarVagas$3.class
 br\com\senac\pifindajob\telas\TelaLogin$2.class
 br\com\senac\pifindajob\telas\CadastroEmpresa.class
 br\com\senac\pifindajob\telas\CadastroEmpresa$1.class
+br\com\senac\pifindajob\repository\FormacaoRepository.class
 br\com\senac\pifindajob\telas\Pessoa.class
 br\com\senac\pifindajob\telas\TelaFormacaoAcademica$1.class
 br\com\senac\pifindajob\telas\telaPrincipalEmpresa$4.class
@@ -45,9 +49,11 @@ br\com\senac\pifindajob\telas\CadastroTrabalhador$2.class
 br\com\senac\pifindajob\telas\TelaCadastro$2.class
 br\com\senac\pifindajob\telas\TelaPrincipalCandidato.class
 br\com\senac\pifindajob\persistencia\JPAUtil.class
+br\com\senac\pifindajob\service\CandidatoService.class
 br\com\senac\pifindajob\telas\BuscarCandidato.class
 br\com\senac\pifindajob\telas\GerenciarVagas$2.class
 br\com\senac\pifindajob\telas\TelaCriarConta$3.class
+br\com\senac\pifindajob\controller\CandidatoController.class
 br\com\senac\pifindajob\telas\TelaPrincipalCandidato$4.class
 br\com\senac\pifindajob\classes\FormacaoAcademica.class
 br\com\senac\pifindajob\telas\BuscarCandidato$2.class
