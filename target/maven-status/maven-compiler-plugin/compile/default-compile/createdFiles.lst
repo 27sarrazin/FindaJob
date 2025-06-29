@@ -47,6 +47,7 @@ br\com\senac\pifindajob\telas\CadastroEmpresa$4.class
 br\com\senac\pifindajob\classes\Contato.class
 br\com\senac\pifindajob\telas\CadastroTrabalhador$2.class
 br\com\senac\pifindajob\telas\TelaCadastro$2.class
+br\com\senac\pifindajob\repository\EmpresaRepository.class
 br\com\senac\pifindajob\telas\TelaPrincipalCandidato.class
 br\com\senac\pifindajob\persistencia\JPAUtil.class
 br\com\senac\pifindajob\service\CandidatoService.class
