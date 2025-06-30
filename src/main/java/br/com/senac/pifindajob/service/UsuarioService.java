@@ -47,4 +47,8 @@ public class UsuarioService {
     public void deletar(int id) {
         repository.deleteById(id);
     } 
+    
+    public Optional<Usuario> autenticar(String email, String senha) {
+    return repository.findByEmailAndSenha(email, senha);
+}
 }

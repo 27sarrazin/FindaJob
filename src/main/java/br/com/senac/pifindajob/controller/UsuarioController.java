@@ -50,5 +50,11 @@ public class UsuarioController {
         service.deletar(id);
     }
     
+    @PostMapping("/login")
+    public Usuario login(@RequestBody Usuario dadosLogin) {
+    return service.autenticar(dadosLogin.getEmail(), dadosLogin.getSenha())
+        .orElseThrow(() -> new RuntimeException("Email ou senha inválidos"));
+}
+
     
 }
