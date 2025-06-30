@@ -29,7 +29,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  document.getElementById("btn-criarConta").addEventListener("click",function(){
+      window.location.href =`/findJobFrontEnd/criarConta.html` ;
+  })
+
+  /*
   // Página criarConta.html
+  
   if (pagina.includes("criarConta.html")) {
     const cadastroForm = document.getElementById("cadastroForm");
     if (cadastroForm) {
@@ -56,14 +62,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (tipoConta.value === "emprego") {
           localStorage.setItem("tipoConta", "candidato");
-          window.location.href = `cadastroCandidato.html?email=${encodeURIComponent(email)}`;
+          window.location.href =`../cadastroCandidato.html` ;
+          //`../cadastroCandidato.html/cadastroCandidato.html?email=${encodeURIComponent(email)}`
         } else {
           localStorage.setItem("tipoConta", "empresa");
           window.location.href = `cadastroEmpresa.html?email=${encodeURIComponent(email)}`;
         }
       });
     }
-  }
+  }*/
 
   // Página cadastroCandidato.html
   if (pagina.includes("cadastroCandidato.html")) {
