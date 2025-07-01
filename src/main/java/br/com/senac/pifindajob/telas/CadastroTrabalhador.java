@@ -279,7 +279,7 @@ public class CadastroTrabalhador extends javax.swing.JFrame {
             Usuario usuarioGerenciado = em.merge(usuario);
 
             Candidato candidato = new Candidato();
-            candidato.setId_usuario(usuarioGerenciado);
+            candidato.setUsuario(usuarioGerenciado);
             candidato.setNome(txtNome.getText());
             candidato.setCpf(txtCpf.getText());
             candidato.setDescricaoCarreira(jTextAreaCarreira.getText());

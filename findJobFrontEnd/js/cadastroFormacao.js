@@ -61,7 +61,8 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .then(usuario => {
       // Preenche os campos no HTML
-      document.getElementById("id_usuario").value = usuario.id;
+      console.log(usuario.id_usuario)
+      document.getElementById("id_usuario").value = usuario.id_usuario;
       document.getElementById("usuario").value = usuario.email; // ou outro campo como nome, se existir
     })
     .catch(error => {

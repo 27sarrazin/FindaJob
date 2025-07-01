@@ -42,7 +42,7 @@ public class CandidatoController {
         Usuario usuario = usuarioService.buscarPorId(id)
         .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
-    candidato.setId_usuario(usuario); // ✅ CORRETO
+    candidato.setUsuario(usuario); // ✅ CORRETO
 
     Candidato salvo = service.salvar(candidato);
     return ResponseEntity.status(HttpStatus.CREATED).body(salvo);
@@ -95,9 +95,10 @@ public class CandidatoController {
         return service.buscarPorCurso(curso);
     }
 
-    @GetMapping("/existePorUsuario/{idUsuario}")
-public boolean verificaCandidatoPorUsuarioId(@PathVariable int idUsuario) {
-    return service.candidatoExistePorUsuarioId(idUsuario);
+    @PostMapping("/existePorUsuario")
+public boolean verificaCandidatoPorUsuarioId(@RequestBody Usuario usuario) {
+         // Optional<Usuario> existe = usuarioService.buscarPorId(idUsuario);
+    return service.candidatoExistePorUsuarioId(usuario);
 }
 
 }

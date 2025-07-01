@@ -6,7 +6,9 @@ package br.com.senac.pifindajob.service;
 
 import br.com.senac.pifindajob.classes.Candidato;
 import br.com.senac.pifindajob.classes.FormacaoAcademica;
+import br.com.senac.pifindajob.classes.Usuario;
 import br.com.senac.pifindajob.repository.CandidatoRepository;
+import br.com.senac.pifindajob.repository.UsuarioRepository;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,8 @@ import org.springframework.stereotype.Service;
 public class CandidatoService {
     @Autowired
     private CandidatoRepository repository;
+    @Autowired
+    private UsuarioRepository userRepository;
     
     public ResponseEntity<Candidato> buscarCandidatoId(int id){
         Optional<Candidato> candidatoExistente = repository.findById(id);
@@ -48,8 +52,9 @@ public class CandidatoService {
         return repository.findAll();
     }
 
-   public boolean candidatoExistePorUsuarioId(int idUsuario) {
-    return repository.existsById_usuario_Id_usuario(idUsuario);
+   public boolean candidatoExistePorUsuarioId(Usuario usuario) {
+    
+    return repository.existsByUsuario(usuario);
 }
 
 

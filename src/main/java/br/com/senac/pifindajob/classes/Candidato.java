@@ -22,7 +22,7 @@ public class Candidato implements mostrarInformacoes, Serializable{
     
     @OneToOne(cascade = CascadeType.ALL) 
     @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
-    private Usuario id_usuario;
+    private Usuario usuario;
     
     @Column(nullable = false, unique = true)
     private String cpf;
@@ -41,7 +41,7 @@ public class Candidato implements mostrarInformacoes, Serializable{
     public Candidato(int idCandidato, String nome, Usuario id_usuario, String cpf, String descricaoCarreira, FormacaoAcademica formacaoAcademica) {
         this.idCandidato = idCandidato;
         this.nome = nome;
-        this.id_usuario = id_usuario;
+        this.usuario = id_usuario;
         this.cpf = cpf;
         this.descricaoCarreira = descricaoCarreira;
         this.formacaoAcademica = formacaoAcademica;
@@ -63,12 +63,12 @@ public class Candidato implements mostrarInformacoes, Serializable{
         this.nome = nome;
     }
 
-    public Usuario getId_usuario() {
-        return id_usuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setId_usuario(Usuario id_usuario) {
-        this.id_usuario = id_usuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public String getCpf() {

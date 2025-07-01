@@ -27,13 +27,14 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
       alert("Login realizado com sucesso!");
       const idUsuario = usuario.id_usuario;
       sessionStorage.setItem("idUsuario", idUsuario);
+      console.log(usuario)
 
       if (usuario.tipo_usuario === 1) {
         // Tipo 1: Empresa — redireciona para tela principal da empresa
         window.location.href = "/findJobFrontEnd/telaPrincipalEmpresa.html";
       } else if (usuario.tipo_usuario === 2) {
         // Tipo 2: Candidato — verifica se candidato já existe
-        fetch(`http://localhost:8080/candidato/existePorUsuario/${idUsuario}`)
+        fetch(`http://localhost:8080/candidato/existePorUsuario`)
           .then(res => res.json())
           .then(existe => {
             if (existe) {
