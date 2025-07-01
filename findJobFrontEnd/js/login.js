@@ -26,7 +26,9 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     .then(usuario => {
       alert("Login realizado com sucesso!");
       const idUsuario = usuario.id_usuario;
+
       sessionStorage.setItem("idUsuario", idUsuario);
+
       console.log(usuario)
 
       if (usuario.tipo_usuario === 1) {
@@ -39,10 +41,10 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
           .then(existe => {
             if (existe) {
               // Se candidato existe, redireciona para tela principal do candidato
-              window.location.href = "/findJobFrontEnd/telaPrincipalCandidato.html";
+              window.location.href = "/findJobFrontEnd/cadastroCandidato.html";
             } else {
               // Se não existe, redireciona para cadastro do candidato
-              window.location.href = "/findJobFrontEnd/cadastroCandidato.html";
+              window.location.href = "/findJobFrontEnd/telaPrincipalCandidato.html";
             }
           })
           .catch(err => {
@@ -61,5 +63,5 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
 
 // Botão "Criar Conta"
 function irParaCriarConta() {
-  window.location.href = "/findJobFrontEnd/criar-conta.html";
+  window.location.href = "/findJobFrontEnd/criarConta.html";
 }

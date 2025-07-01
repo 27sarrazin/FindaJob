@@ -55,7 +55,7 @@ public class CandidatoService {
    public boolean candidatoExistePorUsuarioId(Usuario usuario) {
     
     return repository.existsByUsuario(usuario);
-}
+    }
 
 
 }

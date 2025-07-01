@@ -7,8 +7,8 @@ document.querySelector("form").addEventListener("submit", function (event) {
   const cidade = document.getElementById("cidade").value.trim();
 
   // Aqui você deve pegar o ID do candidato (ex: sessionStorage ou variável global)
-  const idCandidato = sessionStorage.getItem("idCandidato"); // <-- ajustar conforme sua lógica
-
+  const idCandidato = sessionStorage.getItem("idUsuario"); // <-- ajustar conforme sua lógica
+  
   if (!idCandidato) {
     alert("ID do candidato não encontrado.");
     return;
@@ -17,7 +17,10 @@ document.querySelector("form").addEventListener("submit", function (event) {
   const formacao = {
     curso: curso,
     instituicao: instituicao,
-    cidade: cidade
+    cidade: cidade,
+    id_Candidato: {
+    id: parseInt(idCandidato)
+  }
   };
 
   fetch(`http://localhost:8080/formacao/${idCandidato}`, {
