@@ -51,6 +51,8 @@ public class FormacaoService {
                          .distinct()
                          .toList();
     }
-
+ public void deletar(int id) {
+        repository.deleteById(id);
+    }
    
 }

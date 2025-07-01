@@ -17,4 +17,7 @@ import org.springframework.data.repository.query.Param;
 public interface CandidatoRepository extends JpaRepository<Candidato, Integer> {
      @Query("SELECT c FROM Candidato c WHERE LOWER(c.formacaoAcademica.curso) LIKE LOWER(CONCAT('%', :curso, '%'))")
     List<Candidato> buscarPorCurso(@Param("curso") String curso);
+   boolean existsById_usuario_Id_usuario(int idUsuario);
+
+
 }

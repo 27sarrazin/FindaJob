@@ -43,6 +43,14 @@ public class CandidatoService {
     public List<Candidato> buscarPorCurso(String curso) {
         return repository.buscarPorCurso(curso);
     }
+    
+   public List<Candidato> buscarTodos() {
+        return repository.findAll();
+    }
+
+   public boolean candidatoExistePorUsuarioId(int idUsuario) {
+    return repository.existsById_usuario_Id_usuario(idUsuario);
+}
 
 
 }

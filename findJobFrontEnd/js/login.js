@@ -25,14 +25,29 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     })
     .then(usuario => {
       alert("Login realizado com sucesso!");
+      const idUsuario = usuario.id_usuario;
+      sessionStorage.setItem("idUsuario", idUsuario);
 
-      // Redirecionamento baseado no tipo do usuário
       if (usuario.tipo_usuario === 1) {
-        // Tipo 1: Empresa
-        window.location.href = "/findJobFrontEnd/cadastroEmpresa.html";
+        // Tipo 1: Empresa — redireciona para tela principal da empresa
+        window.location.href = "/findJobFrontEnd/telaPrincipalEmpresa.html";
       } else if (usuario.tipo_usuario === 2) {
-        // Tipo 2: Candidato
-        window.location.href = "/findJobFrontEnd/cadastroCandidato.html";
+        // Tipo 2: Candidato — verifica se candidato já existe
+        fetch(`http://localhost:8080/candidato/existePorUsuario/${idUsuario}`)
+          .then(res => res.json())
+          .then(existe => {
+            if (existe) {
+              // Se candidato existe, redireciona para tela principal do candidato
+              window.location.href = "/findJobFrontEnd/telaPrincipalCandidato.html";
+            } else {
+              // Se não existe, redireciona para cadastro do candidato
+              window.location.href = "/findJobFrontEnd/cadastroCandidato.html";
+            }
+          })
+          .catch(err => {
+            console.error("Erro ao verificar cadastro do candidato:", err);
+            alert("Erro ao verificar cadastro do candidato.");
+          });
       } else {
         alert("Tipo de usuário não reconhecido.");
       }

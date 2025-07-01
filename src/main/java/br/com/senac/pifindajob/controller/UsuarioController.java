@@ -52,6 +52,7 @@ public class UsuarioController {
     
     @PostMapping("/login")
     public Usuario login(@RequestBody Usuario dadosLogin) {
+         System.out.println("Tentando login com: " + dadosLogin.getEmail() + " | " + dadosLogin.getSenha());
     return service.autenticar(dadosLogin.getEmail(), dadosLogin.getSenha())
         .orElseThrow(() -> new RuntimeException("Email ou senha inválidos"));
 }
