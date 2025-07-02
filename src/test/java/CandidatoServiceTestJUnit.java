@@ -43,7 +43,7 @@ public class CandidatoServiceTestJUnit {
 
     @Test
     void deveSalvarCandidatoComSucesso() {
-        // Cria e salva o usuário
+ 
         Usuario usuario = new Usuario();
         usuario.setEmail("teste_integ@exemplo.com");
         usuario.setSenha("123456");

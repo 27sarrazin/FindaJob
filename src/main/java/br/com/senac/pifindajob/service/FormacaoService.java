@@ -44,15 +44,15 @@ public class FormacaoService {
         }
         
 
-    public List<Candidato> buscarCandidatosPorCurso(String curso) {
-        return repository.findByCursoIgnoreCase(curso)
-                         .stream()
-                         .map(FormacaoAcademica::getId_Candidato)
-                         .distinct()
-                         .toList();
-    }
- public void deletar(int id) {
-        repository.deleteById(id);
-    }
+        public List<Candidato> buscarCandidatosPorCurso(String curso) {
+            return repository.findByCursoIgnoreCase(curso)
+                             .stream()
+                             .map(FormacaoAcademica::getId_Candidato)
+                             .distinct()
+                             .toList();
+        }
+        public void deletar(int id) {
+               repository.deleteById(id);
+        }
    
 }

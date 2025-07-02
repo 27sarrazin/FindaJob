@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: CandidatoServiceTestJUnit
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.88 s -- in CandidatoServiceTestJUnit
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.746 s -- in CandidatoServiceTestJUnit

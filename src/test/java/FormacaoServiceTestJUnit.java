@@ -79,49 +79,45 @@ public class FormacaoServiceTestJUnit {
         assertTrue(achou);
     }
     @Autowired
-private EntityManager entityManager;
+    private EntityManager entityManager;
     @Test
-void naoDevePermitirCadastroComCpfDuplicado() {
-    Usuario usuario1 = new Usuario(0, 2, "joao@email.com", "123");
-    usuario1 = usuarioRepository.save(usuario1);
+    void naoDevePermitirCadastroComCpfDuplicado() {
+        Usuario usuario1 = new Usuario(0, 2, "joao@email.com", "123");
+        usuario1 = usuarioRepository.save(usuario1);
 
-    Candidato candidato1 = new Candidato();
-    candidato1.setNome("João Silva");
-    candidato1.setCpf("111.222.333-44");
-    candidato1.setDescricaoCarreira("Dev Java");
-    candidato1.setUsuario(usuario1);
+        Candidato candidato1 = new Candidato();
+        candidato1.setNome("João Silva");
+        candidato1.setCpf("111.222.333-44");
+        candidato1.setDescricaoCarreira("Dev Java");
+        candidato1.setUsuario(usuario1);
 
-    FormacaoAcademica form1 = new FormacaoAcademica(0, "ADS", "FATEC", "São Paulo", candidato1);
-    candidato1.setFormacaoAcademica(form1);
+        FormacaoAcademica form1 = new FormacaoAcademica(0, "ADS", "FATEC", "São Paulo", candidato1);
+        candidato1.setFormacaoAcademica(form1);
 
-    candidato1 = candidatoRepository.save(candidato1);
-    candidatoRepository.flush();
-
-    Usuario usuario2 = new Usuario(0, 2, "maria@email.com", "456");
-    usuario2 = usuarioRepository.save(usuario2);
-
-    Candidato candidato2 = new Candidato();
-    candidato2.setNome("Maria Souza");
-    candidato2.setCpf("111.222.333-44"); // CPF duplicado
-    candidato2.setDescricaoCarreira("Dev Frontend");
-    candidato2.setUsuario(usuario2);
-
-    FormacaoAcademica form2 = new FormacaoAcademica(0, "SI", "UNIRIO", "Rio", candidato2);
-    candidato2.setFormacaoAcademica(form2);
-
-    try {
-        candidatoRepository.save(candidato2);
+        candidato1 = candidatoRepository.save(candidato1);
         candidatoRepository.flush();
-        fail("Esperava exceção por CPF duplicado");
-    } catch (Exception e) {
-        // Limpa a sessão do Hibernate após exceção
-        entityManager.clear();
+
+        Usuario usuario2 = new Usuario(0, 2, "maria@email.com", "456");
+        usuario2 = usuarioRepository.save(usuario2);
+
+        Candidato candidato2 = new Candidato();
+        candidato2.setNome("Maria Souza");
+        candidato2.setCpf("111.222.333-44");
+        candidato2.setDescricaoCarreira("Dev Frontend");
+        candidato2.setUsuario(usuario2);
+
+        FormacaoAcademica form2 = new FormacaoAcademica(0, "SI", "UNIRIO", "Rio", candidato2);
+        candidato2.setFormacaoAcademica(form2);
+
+        try {
+            candidatoRepository.save(candidato2);
+            candidatoRepository.flush();
+            fail("Esperava exceção por CPF duplicado");
+        } catch (Exception e) {
+            entityManager.clear();
+        }
     }
 }
-}
-
-
-
 
 
     // TODO add test methods here.
