@@ -32,18 +32,14 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
       console.log(usuario)
 
       if (usuario.tipo_usuario === 1) {
-        // Tipo 1: Empresa — redireciona para tela principal da empresa
         window.location.href = "/findJobFrontEnd/telaPrincipalEmpresa.html";
       } else if (usuario.tipo_usuario === 2) {
-        // Tipo 2: Candidato — verifica se candidato já existe
         fetch(`http://localhost:8080/candidato/existePorUsuario`)
           .then(res => res.json())
           .then(existe => {
             if (existe) {
-              // Se candidato existe, redireciona para tela principal do candidato
               window.location.href = "/findJobFrontEnd/cadastroCandidato.html";
             } else {
-              // Se não existe, redireciona para cadastro do candidato
               window.location.href = "/findJobFrontEnd/telaPrincipalCandidato.html";
             }
           })
@@ -61,7 +57,11 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
     });
 });
 
-// Botão "Criar Conta"
 function irParaCriarConta() {
   window.location.href = "/findJobFrontEnd/criarConta.html";
 }
+
+function voltarLogin() {
+    window.location.href = "/findJobFrontEnd/index.html";
+}
+

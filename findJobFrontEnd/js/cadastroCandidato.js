@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const idUsuario = sessionStorage.getItem("idUsuario");
 
-  // Pré-preenche o campo de e-mail
   fetch(`http://localhost:8080/usuarios/${idUsuario}`)
     .then(response => response.json())
     .then(usuario => {
@@ -12,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("Não foi possível carregar os dados do usuário.");
     });
 
-  // Envia os dados do formulário
   document.getElementById("formCandidato").addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -25,8 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
       nome: nome,
       cpf: cpf,
       descricaoCarreira: descricaoCarreira
-      
-      // ❌ NÃO envie id_usuario aqui
     };
 
     console.log("Candidato enviado:", candidato);
@@ -47,7 +43,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(data => {
         alert("Candidato cadastrado com sucesso!");
         console.log("Resposta:", data);
-        // Redirecionar ou limpar formulário, se desejar
         window.location.href =`/findJobFrontEnd/telaPrincipalCandidato.html`
       })
       .catch(error => {

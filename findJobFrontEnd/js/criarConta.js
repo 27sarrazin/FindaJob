@@ -1,7 +1,6 @@
 document.getElementById("cadastroForm").addEventListener("submit", function (event) {
-  event.preventDefault(); // Impede o recarregamento da página
+  event.preventDefault();
 
-  // Coleta os dados do formulário
   const email = document.getElementById("email").value;
   const senha = document.getElementById("senha").value;
   const confirmarSenha = document.getElementById("confirmarSenha").value;
@@ -13,15 +12,14 @@ document.getElementById("cadastroForm").addEventListener("submit", function (eve
     return;
   }
 
-  // Monta o objeto que será enviado
   const usuario = {
     email: email,
     senha: senha,
-    tipo_usuario: tipo_usuario // exemplo: "emprego" ou "funcionario"
+    tipo_usuario: tipo_usuario
   };
 
   console.log("Dados enviados:", JSON.stringify(usuario));
-  // Envia os dados para a API
+
   fetch("http://localhost:8080/usuarios", {
     method: "POST",
     headers: {
@@ -38,8 +36,7 @@ document.getElementById("cadastroForm").addEventListener("submit", function (eve
   .then(data => {
     alert("Usuário criado com sucesso!");
     console.log("Resposta do servidor:", data);
-    // Redirecionar para outra página, se desejar
-     window.location.href = "/findJobFrontEnd/index.html";
+    window.location.href = "/findJobFrontEnd/index.html";
   })
   .catch(error => {
     console.error("Erro:", error);
