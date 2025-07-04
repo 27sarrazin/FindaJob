@@ -38,14 +38,14 @@ public class CandidatoController {
 
     // CREATE
     @PostMapping("/{id}")
-    public ResponseEntity<Candidato> cadastrar(@RequestBody Candidato candidato, @PathVariable int id) {
-        Usuario usuario = usuarioService.buscarPorId(id)
-        .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
-
-    candidato.setUsuario(usuario); // ✅ CORRETO
-
-    Candidato salvo = service.salvar(candidato);
-    return ResponseEntity.status(HttpStatus.CREATED).body(salvo);
+    public ResponseEntity<?> cadastrar(@RequestBody Candidato candidato, @PathVariable int id) {
+         try {
+        Candidato salvo = service.salvar(candidato,id);
+        return ResponseEntity.ok(salvo.getIdCandidato()); // retorna apenas o ID
+        } catch (Exception e) {
+        e.printStackTrace();
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro ao salvar candidato.");
+        }
     }
 
     // READ - listar todos
@@ -70,7 +70,7 @@ public class CandidatoController {
             c.setNome(novoCandidato.getNome());
             c.setCpf(novoCandidato.getCpf());
             c.setDescricaoCarreira(novoCandidato.getDescricaoCarreira());
-            Candidato atualizado = service.salvar(c);
+            Candidato atualizado = service.salvar(c,id);
             return ResponseEntity.ok(atualizado);
         } else {
             return ResponseEntity.notFound().build();
@@ -95,10 +95,10 @@ public class CandidatoController {
         return service.buscarPorCurso(curso);
     }
 
-    @PostMapping("/existePorUsuario")
-public boolean verificaCandidatoPorUsuarioId(@RequestBody Usuario usuario) {
-         // Optional<Usuario> existe = usuarioService.buscarPorId(idUsuario);
-    return service.candidatoExistePorUsuarioId(usuario);
-}
+    @PostMapping("/existePorUsuario/{idUsuario}")
+    public ResponseEntity<Boolean> candidatoExiste(@PathVariable int id) {
+        boolean existe = service.existePorUsuarioId(id);
+        return ResponseEntity.ok(existe);
+    }
 
 }

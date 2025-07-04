@@ -68,7 +68,7 @@ public class CandidatoServiceTestJUnit {
 
         candidato.setFormacaoAcademica(formacao);
 
-        Candidato salvo = candidatoService.salvar(candidato);
+        Candidato salvo = candidatoService.salvar(candidato,1);
 
         assertNotNull(salvo.getIdCandidato());
         assertEquals("Candidato Teste", salvo.getNome());

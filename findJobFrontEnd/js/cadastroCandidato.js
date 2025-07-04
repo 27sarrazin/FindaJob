@@ -43,7 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
       .then(data => {
         alert("Candidato cadastrado com sucesso!");
         console.log("Resposta:", data);
-        window.location.href =`/findJobFrontEnd/telaPrincipalCandidato.html`
+        console.log("id do candidato salvo :"+data)
+        sessionStorage.setItem("idCandidato", data); // data é o id
+       window.location.href = `/findJobFrontEnd/telaPrincipalCandidato.html`
       })
       .catch(error => {
         console.error("Erro:", error);

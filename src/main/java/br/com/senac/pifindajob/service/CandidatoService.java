@@ -24,7 +24,7 @@ public class CandidatoService {
     @Autowired
     private CandidatoRepository repository;
     @Autowired
-    private UsuarioRepository userRepository;
+    private UsuarioRepository usuarioRepository;
     
     public ResponseEntity<Candidato> buscarCandidatoId(int id){
         Optional<Candidato> candidatoExistente = repository.findById(id);
@@ -35,13 +35,12 @@ public class CandidatoService {
         repository.deleteById(id);
     }
     
-     public Candidato salvar(Candidato candidato) {
-    FormacaoAcademica formacao = candidato.getFormacaoAcademica();
+     public Candidato salvar(Candidato candidato, int idUsuario) {
+        Usuario usuario = usuarioRepository.findById(idUsuario)
+        .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
-    if (formacao != null) {
-        formacao.setId_Candidato(candidato);
-    }
-    return repository.save(candidato);
+        candidato.setUsuario(usuario); // importante!
+        return repository.save(candidato);
     }
      
     public List<Candidato> buscarPorCurso(String curso) {
@@ -52,10 +51,12 @@ public class CandidatoService {
         return repository.findAll();
     }
 
-   public boolean candidatoExistePorUsuarioId(Usuario usuario) {
-    
+  public boolean existePorUsuarioId(int idUsuario) {
+    Usuario usuario = usuarioRepository.findById(idUsuario)
+        .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
+
     return repository.existsByUsuario(usuario);
-    }
+}
 
 
 }

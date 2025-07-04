@@ -21,7 +21,7 @@ public class Candidato implements mostrarInformacoes, Serializable{
     private String nome;
     
     @OneToOne(cascade = CascadeType.ALL) 
-    @JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
+    @JoinColumn(name = "id_usuario", nullable = false, referencedColumnName = "id_usuario")
     private Usuario usuario;
     
     @Column(nullable = false, unique = true)
